@@ -19,6 +19,14 @@ class InputGuardRailOutput(BaseModel):
 
     is_off_topic: bool
     reason: str
+    
+class OutputGuardRailOutput(BaseModel):
+    
+    contain_off_topic: bool
+    contain_Menu_data: bool
+    contain_order_data: bool
+    contain_reservation_data: bool
+    reason: str
 
 
 class HandoffData(BaseModel):

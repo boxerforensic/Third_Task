@@ -1,5 +1,6 @@
 from agents import Agent, RunContextWrapper
 from models import UserAccountContext
+from output_guardrails import menu_output_guardrail
 
 
 def dynamic_menu_agent_instructions(
@@ -40,7 +41,10 @@ def dynamic_menu_agent_instructions(
     
     """
 
-
 menu_agent = Agent(
     name="Menu Agent",
-    instructions=dynamic_menu_agent_instructions)
+    instructions=dynamic_menu_agent_instructions,
+    output_guardrails=[
+        menu_output_guardrail
+    ]
+    )

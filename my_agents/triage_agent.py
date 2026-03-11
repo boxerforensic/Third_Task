@@ -13,6 +13,7 @@ from models import UserAccountContext, InputGuardRailOutput, HandoffData
 from my_agents.menu_agent import menu_agent
 from my_agents.reservation_agent import reservation_agent
 from my_agents.order_agent import order_agent
+from my_agents.compaints_agent import complaints_agent
 
 
 input_guardrail_agent = Agent(
@@ -85,6 +86,12 @@ def dynamic_triage_agent_instructions(
         - 예약 날짜, 시간, 인원수 변경 요청
         - 예약 조회, 취소, 재확인
         - 좌석 요청, 창가석 여부, 특별 요청사항 접수
+    
+    🔹 Complaints AGENT - 다음과 같은 경우 여기로 연결:
+
+        - 고객의 불만을 공감하며 인정
+        - 해결책 제시(환불, 할인, 매니저 소환)
+        - 고객의 심각한 불만에 대해 단계적으로 해결해 나간다.
        
     분류 절차:
 
@@ -142,5 +149,6 @@ triage_agent = Agent(
         make_handoff(menu_agent),
         make_handoff(reservation_agent),
         make_handoff(order_agent),
+        make_handoff(complaints_agent)
     ],
 )

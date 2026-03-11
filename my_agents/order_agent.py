@@ -1,5 +1,6 @@
 from agents import Agent, RunContextWrapper
 from models import UserAccountContext
+from output_guardrails import order_output_guardrail
 
 
 def dynamic_order_agent_instructions(
@@ -46,4 +47,5 @@ def dynamic_order_agent_instructions(
 order_agent = Agent(
     name="Order Management Agent",
     instructions=dynamic_order_agent_instructions,
+    output_guardrails=[order_output_guardrail]
 )
