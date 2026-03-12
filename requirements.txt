@@ -1,0 +1,3 @@
+openai-agents[voice]>=0.2.8
+python-dotenv>=1.1.1
+streamlit>=1.48.1
